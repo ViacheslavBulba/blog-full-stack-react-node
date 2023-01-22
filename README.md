@@ -1,3 +1,15 @@
+Development notes
+
+npx create-react-app blog-full-stack-react-node
+
+cd blog-full-stack-react-node
+
+npm start
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
