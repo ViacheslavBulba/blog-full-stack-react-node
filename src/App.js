@@ -5,12 +5,13 @@ import About from './pages/About';
 import Article from './pages/Article';
 import ArticleList from './pages/ArticleList';
 import NotFound from './pages/NotFound';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1>my blog</h1>
+       <Navigation />
         <div id="page-body">
           <Routes>
             <Route path='/' element={<Home />} />
