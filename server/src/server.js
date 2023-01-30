@@ -24,9 +24,9 @@ app.put('/api/articles/:name/upvote', (req, res) => {
     const article = articlesInfo.find(a => a.name === name);
     if (article) {
         article.upvotes += 1;
-        res.send(`The ${name} article now has ${article.upvotes} upvotes`);
+        res.status(204).send(`The ${name} article now has ${article.upvotes} upvotes`);
     } else {
-        res.send('That article doesn\'t exist');
+        res.status(404).send('Not Found');
     }
 });
 
@@ -36,9 +36,9 @@ app.post('/api/articles/:name/comments', (req, res) => {
     const article = articlesInfo.find(a => a.name === name);
     if (article) {
         article.comments.push({ postedBy, text });
-        res.send(article.comments);
+        res.status(201).send(article.comments);
     } else {
-        res.send('That article doesn\'t exist!');
+        res.status(404).send('Not Found');
     }
 });
 
