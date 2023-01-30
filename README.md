@@ -2,6 +2,10 @@ Development notes
 
 ---
 
+FRONTEND
+
+---
+
 npx create-react-app blog-full-stack-react-node
 
 cd blog-full-stack-react-node
@@ -27,3 +31,21 @@ REACT FEATURES USED:
 { Link } from 'react-router-dom';
 
 { useParams } from 'react-router-dom';
+
+---
+
+BACKEND
+
+---
+
+create folder 'server'
+
+cd server
+
+npm init -y
+
+npm i express
+
+add  "type": "module", into package.json for the server so you can use modern syntax like 'import...'
+
+nodemon src/server.js
