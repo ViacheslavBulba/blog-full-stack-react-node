@@ -24,6 +24,10 @@ npm i react-router-dom
 
 ---
 
+npm i axios
+
+---
+
 REACT FEATURES USED:
 
 { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -32,9 +36,17 @@ REACT FEATURES USED:
 
 { useParams } from 'react-router-dom';
 
+useState, useEffect
+
 ---
 
 BACKEND
+
+---
+
+```cd server```
+
+```npm run dev```
 
 ---
 
@@ -49,3 +61,12 @@ npm i express
 add  "type": "module", into package.json for the server so you can use modern syntax like 'import...'
 
 nodemon src/server.js
+
+---
+
+Access to XMLHttpRequest at 'http://localhost:8000/api/articles/learn-react' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+add into the front end package.json the following:
+
+```"proxy": "http://localhost:8000/",```
+
