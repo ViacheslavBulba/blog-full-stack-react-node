@@ -16,6 +16,7 @@ const Article = () => {
             const response = await axios.get(`/api/articles/${articleId}`); // do not need a full path since we specified proxy in package.json
             const data = response.data;
             setArticleInfo(data);
+            console.log("load data");
         }
         loadData();
     }, [articleId]);
