@@ -70,3 +70,31 @@ add into the front end package.json the following:
 
 ```"proxy": "http://localhost:8000/",```
 
+## Serve static front end from server
+
+cd client
+
+npm run build
+
+update server.js
+
+```
+import path from 'path';  // we need these 4 imports to recreate manually __dirname since it does not work after we specified "type": "module" in package.json
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const PORT = process.env.PORT || 8000;
+
+app.use(express.static(path.join(__dirname, '../../client/build')));
+
+app.get(/^(?!\/api).+/, (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/build/index.html'));
+});
+```
+
+```cd server```
+
+```npm run dev```
+
+http://localhost:8000/

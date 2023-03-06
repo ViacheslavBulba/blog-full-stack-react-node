@@ -1,6 +1,11 @@
 import express from 'express';
 import articles from './article-content.js';
 
+import path from 'path';  // we need these 4 imports to recreate manually __dirname since it does not work after we specified "type": "module" in package.json
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const PORT = process.env.PORT || 8000;
 
 // let articlesInfo = [{
@@ -19,6 +24,12 @@ const PORT = process.env.PORT || 8000;
 
 const app = express();
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, '../../client/build')));
+
+app.get(/^(?!\/api).+/, (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/build/index.html'));
+});
 
 app.get('/api/articles', (req, res) => {
     res.status(200).send(articles);
